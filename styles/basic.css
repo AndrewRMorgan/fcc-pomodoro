@@ -1,0 +1,98 @@
+body {
+  background-color: #FFFFFF;
+  font-family: 'Open Sans', sans-serif;
+}
+.mainHeader {
+  display: block;
+  width: 500px;
+  height: 75px;
+  margin: 150px auto 20px auto;
+  font-family: 'Lobster', cursive;
+  font-size: 4em;
+  line-height: 75px;
+  text-align: center;
+}
+.container {
+  display: block;
+  width: 300px;
+  height: 280px;
+  margin: 0 auto 0 auto;
+  text-align: center;
+}
+.rightGroup {
+  display: inline-block;
+  float: left;
+  width: 280px;
+  height: 280px;
+  margin: 10px;
+}
+.group {
+  display: inline-block;
+  height: 100px;
+  text-align: center;
+}
+.time {
+  overflow: hidden;
+  display: inline-block;
+  height: 95px;
+  width: 200px;
+  border: 2px solid #757575;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 3.5em;
+  line-height: 95px;
+  background-color: #EEEEEE;
+  margin-left: 10px;
+}
+.changeGroup {
+  overflow: hidden;
+  display: inline-block;
+  width: 60px;
+}
+.change {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  background-color: #9E9E9E;
+  border-radius: 5px;
+  border-color: #9E9E9E;
+  font-size: 1.5em;
+  float: left;
+}
+.controlGroup {
+  display: inline-block;
+  height: 50px;
+  text-align: center;
+}
+.control {
+  background-color: white;
+  height: 50px;
+  width: 127px;
+  border-radius: 5px;
+  font-size: 1.3em;
+  line-height: 30px;
+}
+#start {
+  background-color: #33cc33;
+  border-color: #33cc33;
+  font-family: 'Open Sans', sans-serif;
+}
+#stop {
+  background-color: #F44336;
+  border-color: #F44336;
+  font-family: 'Open Sans', sans-serif;
+}
+button:focus {
+  outline: none;
+}
+.about {
+  display: block;
+  margin-top: 200px;
+  font-size: 1em;
+  font-family: 'Lobster', cursive;
+  text-align: center;
+}
+.about a {
+  text-decoration: none;
+  color: inherit;
+}

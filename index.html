@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Pomodoro Clock - By Andy Morgan</title>
+  <link rel='stylesheet' type='text/css' href='styles/basic.css'>
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans" rel="stylesheet">
+</head>
+
+<body>
+<header class='mainHeader'>Pomodoro Clock</header>
+<div class='container'>
+<div class='rightGroup'>
+  <div class='group'>
+    <div id='timer' class='time'></div>
+      <div class='changeGroup'>
+        <button id='increase' class='change'>+</button>
+        <button id='decrease' class='change'>-</button>
+      </div>
+  </div>
+  <div class='group'>
+    <div id='breakTimer' class='time'></div>
+      <div class='changeGroup'>
+        <button id='increaseBreak' class='change'>+</button>
+        <button id='decreaseBreak' class='change'>-</button><br>
+    </div>
+  </div>
+  <div class='controlGroup'>
+    <button id='start' class='control'>START</button>
+    <button id='stop' class='control'>STOP</button>
+  </div>
+</div>
+</div>
+<div class="about">Created by <a href="http://codepen.io/andrewrmorgan/" target="_blank">AndrewRMorgan</a></div>
+<audio id='timerSound'>
+  <source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/41203/beep.mp3"/>
+  <source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/41203/beep.ogg" />
+</audio>
+<script type='text/javascript' src='scripts/main.js'></script>
+</body>
+</html>
