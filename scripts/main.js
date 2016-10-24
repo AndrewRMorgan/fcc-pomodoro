@@ -1,16 +1,18 @@
-var m = 25,
-    origM = 25,
-    s = 0,
-    origS = 0,
-    breakM = 5,
-    origBreakM = 5,
-    breakS = 0,
-    origBreakS = 0,
-    future,
-    futureBreak,
-    status = "work",
-    flag = 0,
-    sec;
+let m = 25;
+let origM = 25;
+let s = 0;
+const origS = 0;
+let breakM = 5;
+let origBreakM = 5;
+let breakS = 0;
+const origBreakS = 0;
+let future;
+let futureBreak;
+let status = "work";
+let flag = 0;
+let sec;
+let setSec;
+let setBreakSec;
 
 document.getElementById("timer").innerHTML = m + ":0" + s;
 document.getElementById("breakTimer").innerHTML = breakM + ":0" + breakS;
@@ -19,12 +21,8 @@ document.getElementById("start").addEventListener("click", function() {
   if (status === "work" && flag === 0){
     startTimer();
   } else if (status === "break" && flag === 0){
-    startBreakTimer();
+    startBreak();
   }
-  origM = m;
-  origS = s;
-  origBreakM = breakM;
-  origBreakS = breakS;
 });
 
 function startTimer(){
@@ -54,64 +52,38 @@ document.getElementById("stop").addEventListener("click", function() {
 })
 
 document.getElementById("increase").addEventListener("click", function() {
-  if (status === "work" && flag === 0 && m < 60){
+  if (flag === 0 && m < 60){
     m++;
     origM++;
-    s = 00;
+    s = 0;
     document.getElementById("timer").innerHTML = m + ":0" + s;
-  } else if (status === "break" && m < 60){
-    m++;
-    origM++;
-    document.getElementById("timer").innerHTML = m + ":0" + s;
-  } else {
-    return;
   }
-
 });
 
 document.getElementById("decrease").addEventListener("click", function() {
-  if (status === "work" && flag === 0 && m > 1){
+  if (flag === 0 && m > 1){
     m--;
     origM--;
-    s = 00;
+    s = 0;
     document.getElementById("timer").innerHTML = m + ":0" + s;
-  } else if (status === "break" && m > 1){
-    m--;
-    origM--;
-    document.getElementById("timer").innerHTML = m + ":0" + s;
-  } else {
-    return;
   }
-
 });
 
 document.getElementById("increaseBreak").addEventListener("click", function() {
-  if (status === "break" && flag === 0 && breakM < 60){
+  if (flag === 0 && breakM < 60){
     breakM++;
     origBreakM++;
     breakS = 0;
     document.getElementById("breakTimer").innerHTML = breakM + ":0" + breakS;
-  } else if (status === "work" && breakM < 60){
-    breakM++;
-    origBreakM++;
-    document.getElementById("breakTimer").innerHTML = breakM + ":0" + breakS;
-  } else {
-    return;
   }
 });
 
 document.getElementById("decreaseBreak").addEventListener("click", function() {
-    if (status === "break" && flag === 0 && breakM > 1){
+    if (flag === 0 && breakM > 1){
     breakM--;
     origBreakM--;
     breakS = 0;
     document.getElementById("breakTimer").innerHTML = breakM + ":0" + breakS;
-  } else if (status === "work" && breakM > 1){
-    breakM--;
-    origBreakM--;
-    document.getElementById("breakTimer").innerHTML = breakM + ":0" + breakS;
-  } else {
-    return;
   }
 });
 
@@ -132,14 +104,14 @@ function updateBreakSec() {
 }
 
 function updateHTML() {
-  if (m === 0 && s === 00) {
-    document.getElementById('timerSound').play();
+  if (m === 0 && s === 0) {
     clearInterval(setSec);
-    document.getElementById("timer").innerHTML = origM + ":0" + origS;
-    startBreak();
-    status = "break";
+    document.getElementById('timerSound').play();
     m = origM;
     s = origS;
+    document.getElementById("timer").innerHTML = m + ":0" + s;
+    status = "break";
+    startBreak();
   } else if (s < 10) {
     document.getElementById("timer").innerHTML = m + ":0" + s;
   } else {
@@ -148,21 +120,17 @@ function updateHTML() {
 }
 
 function updateBreakHTML() {
-  if (breakM === 0 && breakS === 00) {
-    document.getElementById('timerSound').play();
+  if (breakM === 0 && breakS === 0) {
     clearInterval(setBreakSec);
-    document.getElementById("breakTimer").innerHTML = origBreakM + ":0" + origBreakS;
-    startTimer();
-    status = "work";
+    document.getElementById('timerSound').play();
     breakM = origBreakM;
     breakS = origBreakS;
+    document.getElementById("breakTimer").innerHTML = breakM + ":0" + breakS;
+    status = "work";
+    startTimer();
   } else if (breakS < 10) {
     document.getElementById("breakTimer").innerHTML = breakM + ":0" + breakS;
   } else {
     document.getElementById("breakTimer").innerHTML = breakM + ":" + breakS;
   }
 }
-
-var change = 260 / origS;
-document.getElementById('whiteDiv').css.height += change;
-document.getElementById('colorDiv').css.height -= change;
